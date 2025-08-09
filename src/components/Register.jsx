@@ -9,7 +9,11 @@ const Register = () => {
   const handleRegister = async () => {
     try {
       await axios.post(`${import.meta.env.VITE_SERVER_URL}/register`, { email, password, username });
-      alert("Registered! Now login.");
+      // alert("Registered! Now login.");
+      // UPDATE: log user in immediately
+      const loginRes = await axios.post(`${import.meta.env.VITE_SERVER_URL}/login` , { email, password }); 
+      setToken(loginRes.data.token);
+      setUsername(loginRes.data.username);
     } catch (err) {
       alert(err.response.data);
     }
