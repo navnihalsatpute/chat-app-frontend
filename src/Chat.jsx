@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import io from "socket.io-client";
 
-const socket = io(https://chat-app-backend-ljlg.onrender.com);
+const socket = io("https://chat-app-backend-ljlg.onrender.com");
 
 const Chat = ({ username, toggleDarkMode, darkMode }) => {
   const [message, setMessage] = useState("");
